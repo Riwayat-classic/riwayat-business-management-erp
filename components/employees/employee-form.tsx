@@ -72,6 +72,51 @@ export function EmployeeForm() {
         </CardContent>
       </Card>
 
+<Card>
+  <CardHeader>
+    <CardTitle>Employment Information</CardTitle>
+  </CardHeader>
+
+  <CardContent>
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+      <div>
+        <Label>Branch</Label>
+
+        <Input
+          placeholder="Karachi Main Branch"
+          readOnly
+        />
+      </div>
+
+      <div>
+        <Label>Employee Type</Label>
+
+        <Input
+          placeholder="Sales"
+        />
+      </div>
+
+      <div>
+        <Label>Department</Label>
+
+        <Input
+          placeholder="Sales Department"
+        />
+      </div>
+
+      <div>
+        <Label>Designation</Label>
+
+        <Input
+          placeholder="Sales Executive"
+        />
+      </div>
+
+    </div>
+  </CardContent>
+</Card>
+
       <div className="flex justify-end gap-3">
         <Button variant="outline">
           Cancel
