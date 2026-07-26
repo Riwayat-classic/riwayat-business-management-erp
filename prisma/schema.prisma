@@ -63,3 +63,35 @@ employees Employee[]
 
   @@map("branches")
 }
+
+model Employee {
+  id                  String       @id @default(cuid())
+
+  employeeCode        String       @unique
+  fullName            String
+
+  phone               String
+  cnic                String?
+  address             String?
+
+  employeeType        EmployeeType
+  designation         String
+  department          String
+
+  salaryType          SalaryType
+  basicSalary         Decimal      @db.Decimal(12, 2)
+  commissionPercent   Decimal      @default(0) @db.Decimal(5, 2)
+
+  joinDate            DateTime
+
+  isActive            Boolean      @default(true)
+  notes               String?
+
+  branchId            String
+  branch              Branch       @relation(fields: [branchId], references: [id])
+
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  @@map("employees")
+}
