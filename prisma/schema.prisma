@@ -26,3 +26,22 @@ model User {
 
   @@map("users")
 }
+model Branch {
+  id         String   @id @default(cuid())
+
+  branchCode String   @unique
+  name       String
+
+  phone      String?
+  email      String?
+
+  address    String?
+  city       String?
+
+  isActive   Boolean  @default(true)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("branches")
+}
