@@ -117,6 +117,52 @@ export function EmployeeForm() {
   </CardContent>
 </Card>
 
+<Card>
+  <CardHeader>
+    <CardTitle>Salary Information</CardTitle>
+  </CardHeader>
+
+  <CardContent>
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+      <div>
+        <Label>Salary Type</Label>
+
+        <Input
+          placeholder="Monthly"
+        />
+      </div>
+
+      <div>
+        <Label>Basic Salary</Label>
+
+        <Input
+          type="number"
+          placeholder="50000"
+        />
+      </div>
+
+      <div>
+        <Label>Commission (%)</Label>
+
+        <Input
+          type="number"
+          placeholder="0"
+        />
+      </div>
+
+      <div>
+        <Label>Join Date</Label>
+
+        <Input
+          type="date"
+        />
+      </div>
+
+    </div>
+  </CardContent>
+</Card>
+
       <div className="flex justify-end gap-3">
         <Button variant="outline">
           Cancel
