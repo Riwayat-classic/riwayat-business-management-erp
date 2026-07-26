@@ -12,6 +12,22 @@ datasource db {
   provider = "postgresql"
 }
 
+enum EmployeeType {
+  ADMIN
+  MANAGER
+  SALES
+  CASHIER
+  TAILOR
+  KARIGAR
+  HELPER
+}
+
+enum SalaryType {
+  MONTHLY
+  DAILY
+  PER_PIECE
+}
+
 model User {
   id        String   @id @default(cuid())
 
@@ -42,6 +58,8 @@ model Branch {
 
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+
+employees Employee[]
 
   @@map("branches")
 }
