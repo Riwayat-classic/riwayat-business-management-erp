@@ -80,7 +80,7 @@ model Employee {
 
   salaryType          SalaryType
   basicSalary         Decimal      @db.Decimal(12, 2)
-  commissionPercent   Decimal      @default(0) @db.Decimal(5, 2)
+  commissionPercent   Decimal      @default(0.00) @db.Decimal(5, 2)
 
   joinDate            DateTime
 
