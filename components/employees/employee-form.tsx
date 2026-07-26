@@ -1,7 +1,14 @@
 "use client";
 
+import { createEmployee } from "@/lib/actions/employee-actions";
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 export function EmployeeForm() {
   return (
     <div className="space-y-6">
+      {/* Page Heading */}
       <div>
         <h1 className="text-3xl font-bold text-[#7A0019]">
           Add Employee
@@ -19,159 +27,195 @@ export function EmployeeForm() {
         </p>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Basic Information</CardTitle>
-        </CardHeader>
+      <form action={createEmployee} className="space-y-6">
 
-        <CardContent>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {/* Basic Information */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Basic Information</CardTitle>
+          </CardHeader>
 
-            <div>
-              <Label>Employee Code</Label>
+          <CardContent>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-              <Input
-                placeholder="EMP000001"
-                readOnly
-              />
+              <div>
+                <Label>Employee Code</Label>
+
+                <Input
+                  name="employeeCode"
+                  placeholder="EMP-000001"
+                  readOnly
+                />
+              </div>
+
+              <div>
+                <Label>Full Name</Label>
+
+                <Input
+                  name="fullName"
+                  placeholder="Enter full name"
+                />
+              </div>
+
+              <div>
+                <Label>Phone</Label>
+
+                <Input
+                  name="phone"
+                  placeholder="03XXXXXXXXX"
+                />
+              </div>
+
+              <div>
+                <Label>CNIC</Label>
+
+                <Input
+                  name="cnic"
+                  placeholder="42101-1234567-1"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <Label>Address</Label>
+
+                <Textarea
+                  name="address"
+                  placeholder="Employee address"
+                />
+              </div>
+
             </div>
+          </CardContent>
+        </Card>
 
-            <div>
-              <Label>Full Name</Label>
+        {/* Employment Information */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Employment Information</CardTitle>
+          </CardHeader>
 
-              <Input
-                placeholder="Enter full name"
-              />
+          <CardContent>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+              <div>
+                <Label>Branch</Label>
+
+                <Input
+                  name="branchId"
+                  placeholder="Karachi Main Branch"
+                />
+              </div>
+
+              <div>
+                <Label>Employee Type</Label>
+
+                <Input
+                  name="employeeType"
+                  placeholder="Sales"
+                />
+              </div>
+
+              <div>
+                <Label>Department</Label>
+
+                <Input
+                  name="department"
+                  placeholder="Sales Department"
+                />
+              </div>
+
+              <div>
+                <Label>Designation</Label>
+
+                <Input
+                  name="designation"
+                  placeholder="Sales Executive"
+                />
+              </div>
+
             </div>
+          </CardContent>
+        </Card>
 
-            <div>
-              <Label>Phone</Label>
+        {/* Salary Information */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Salary Information</CardTitle>
+          </CardHeader>
 
-              <Input
-                placeholder="03XXXXXXXXX"
-              />
+          <CardContent>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+              <div>
+                <Label>Salary Type</Label>
+
+                <Input
+                  name="salaryType"
+                  placeholder="Monthly"
+                />
+              </div>
+
+              <div>
+                <Label>Basic Salary</Label>
+
+                <Input
+                  name="basicSalary"
+                  type="number"
+                  placeholder="50000"
+                />
+              </div>
+
+              <div>
+                <Label>Commission (%)</Label>
+
+                <Input
+                  name="commissionPercent"
+                  type="number"
+                  placeholder="0"
+                />
+              </div>
+
+              <div>
+                <Label>Join Date</Label>
+
+                <Input
+                  name="joinDate"
+                  type="date"
+                />
+              </div>
+
             </div>
+          </CardContent>
+        </Card>
 
-            <div>
-              <Label>CNIC</Label>
-
-              <Input
-                placeholder="42101-1234567-1"
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <Label>Address</Label>
-
-              <Textarea
-                placeholder="Employee address"
-              />
-            </div>
-
-          </div>
-        </CardContent>
-      </Card>
-
-<Card>
-  <CardHeader>
-    <CardTitle>Employment Information</CardTitle>
-  </CardHeader>
-
-  <CardContent>
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-
-      <div>
-        <Label>Branch</Label>
-
-        <Input
-          placeholder="Karachi Main Branch"
-          readOnly
+        {/* Hidden Fields */}
+        <input
+          type="hidden"
+          name="notes"
+          value=""
         />
-      </div>
 
-      <div>
-        <Label>Employee Type</Label>
-
-        <Input
-          placeholder="Sales"
+        <input
+          type="hidden"
+          name="isActive"
+          value="true"
         />
-      </div>
 
-      <div>
-        <Label>Department</Label>
+        {/* Buttons */}
+        <div className="flex justify-end gap-3">
+          <Button
+            type="button"
+            variant="outline"
+          >
+            Cancel
+          </Button>
 
-        <Input
-          placeholder="Sales Department"
-        />
-      </div>
+          <Button type="submit">
+            Save Employee
+          </Button>
+        </div>
 
-      <div>
-        <Label>Designation</Label>
-
-        <Input
-          placeholder="Sales Executive"
-        />
-      </div>
-
-    </div>
-  </CardContent>
-</Card>
-
-<Card>
-  <CardHeader>
-    <CardTitle>Salary Information</CardTitle>
-  </CardHeader>
-
-  <CardContent>
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-
-      <div>
-        <Label>Salary Type</Label>
-
-        <Input
-          placeholder="Monthly"
-        />
-      </div>
-
-      <div>
-        <Label>Basic Salary</Label>
-
-        <Input
-          type="number"
-          placeholder="50000"
-        />
-      </div>
-
-      <div>
-        <Label>Commission (%)</Label>
-
-        <Input
-          type="number"
-          placeholder="0"
-        />
-      </div>
-
-      <div>
-        <Label>Join Date</Label>
-
-        <Input
-          type="date"
-        />
-      </div>
-
-    </div>
-  </CardContent>
-</Card>
-
-      <div className="flex justify-end gap-3">
-        <Button variant="outline">
-          Cancel
-        </Button>
-
-        <Button>
-          Save Employee
-        </Button>
-      </div>
+      </form>
     </div>
   );
 }
