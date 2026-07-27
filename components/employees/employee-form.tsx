@@ -41,11 +41,10 @@ export function EmployeeForm() {
               <div>
                 <Label>Employee Code</Label>
 
-                <Input
-                  name="employeeCode"
-                  placeholder="EMP-000001"
-                  readOnly
-                />
+               <Input
+  value="Auto Generated"
+  readOnly
+/>
               </div>
 
               <div>

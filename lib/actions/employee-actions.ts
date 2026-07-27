@@ -51,12 +51,47 @@ export async function createEmployee(formData: FormData) {
   }
 
   // Prisma Save yahan next step mein add hoga.
-const employeeCode = await generateEmployeeCode();
+try {
+  const employeeCode = await generateEmployeeCode();
 
-console.log(employeeCode);
+  await prisma.employee.create({
+    data: {
+      employeeCode,
+
+      fullName: validatedData.data.fullName,
+      phone: validatedData.data.phone,
+      cnic: validatedData.data.cnic,
+      address: validatedData.data.address,
+
+      employeeType: validatedData.data.employeeType as any,
+      department: validatedData.data.department,
+      designation: validatedData.data.designation,
+
+      salaryType: validatedData.data.salaryType as any,
+      basicSalary: validatedData.data.basicSalary,
+      commissionPercent: validatedData.data.commissionPercent,
+
+      joinDate: validatedData.data.joinDate,
+
+      notes: validatedData.data.notes,
+      isActive: validatedData.data.isActive,
+
+      branchId: validatedData.data.branchId,
+    },
+  });
+
+  revalidatePath("/dashboard/employees");
+
   return {
     success: true,
-    message: "Employee validation successful.",
-    data: validatedData.data,
+    message: "Employee created successfully.",
   };
+} catch (error) {
+  console.error("Employee Create Error:", error);
+
+  return {
+    success: false,
+    message: "Unable to create employee.",
+  };
+}
 }
