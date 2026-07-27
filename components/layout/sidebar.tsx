@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 const menuItems = [
   { name: "Dashboard", href: "/dashboard" },
   { name: "Branches", href: "/dashboard/branches" },
@@ -14,6 +15,7 @@ const menuItems = [
 ];
 
 export function Sidebar() {
+  const pathname = usePathname();
   return (
     <aside className="w-64 h-screen bg-[#1B1B1B] text-white border-r border-gray-800">
       <div className="p-6 border-b border-gray-800">
@@ -27,15 +29,25 @@ export function Sidebar() {
       </div>
 
       <nav className="p-4 space-y-2">
-        {menuItems.map((item) => (
+       {menuItems.map((item) => {
+          const isActive =
+  item.href === "/dashboard"
+    ? pathname === "/dashboard"
+    : pathname.startsWith(item.href);
+     return (
           <Link
             key={item.name}
             href={item.href}
-            className="block w-full rounded-lg px-4 py-2 text-left transition-colors hover:bg-[#7A0019]"
+           className={`block w-full rounded-lg px-4 py-2 text-left transition-colors ${
+  isActive
+    ? "bg-[#7A0019] text-white"
+    : "hover:bg-[#7A0019]"
+}`}
           >
             {item.name}
           </Link>
-        ))}
+       );
+})}
       </nav>
     </aside>
   );
