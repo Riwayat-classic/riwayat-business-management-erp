@@ -1,5 +1,9 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
+import { prisma } from "@/lib/prisma";
+import { generateEmployeeCode } from "@/lib/utils/employee-code";
 import { employeeSchema } from "@/lib/validations/employee-schema";
 
 export async function createEmployee(formData: FormData) {
@@ -47,7 +51,9 @@ export async function createEmployee(formData: FormData) {
   }
 
   // Prisma Save yahan next step mein add hoga.
+const employeeCode = await generateEmployeeCode();
 
+console.log(employeeCode);
   return {
     success: true,
     message: "Employee validation successful.",

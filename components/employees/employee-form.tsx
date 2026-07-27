@@ -98,21 +98,23 @@ export function EmployeeForm() {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
               <div>
-                <Label>Branch</Label>
+               <Label>Branch</Label>
 
-                <Input
-                  name="branchId"
-                  placeholder="Karachi Main Branch"
-                />
+<Input
+  name="branchId"
+  defaultValue="branch_karachi_main"
+  readOnly
+/>
               </div>
 
               <div>
                 <Label>Employee Type</Label>
 
-                <Input
-                  name="employeeType"
-                  placeholder="Sales"
-                />
+               <Input
+  name="employeeType"
+  defaultValue="SALES"
+  readOnly
+/>
               </div>
 
               <div>
@@ -150,9 +152,10 @@ export function EmployeeForm() {
                 <Label>Salary Type</Label>
 
                 <Input
-                  name="salaryType"
-                  placeholder="Monthly"
-                />
+  name="salaryType"
+  defaultValue="MONTHLY"
+  readOnly
+/>
               </div>
 
               <div>
