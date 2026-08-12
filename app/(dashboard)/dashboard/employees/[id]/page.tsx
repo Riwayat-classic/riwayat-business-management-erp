@@ -12,9 +12,12 @@ export default async function EmployeeDetailsPage({
   params,
 }: EmployeeDetailsPageProps) {
   const { id } = await params;
-  const employee = await prisma.employee.findUnique({
+ const employee = await prisma.employee.findUnique({
   where: {
     id,
+  },
+  include: {
+    branch: true,
   },
 });
 if (!employee) {
@@ -58,9 +61,9 @@ if (!employee) {
   </h2>
 
   <p>
-    <strong>Branch ID:</strong>{" "}
-    {employee.branchId}
-  </p>
+  <strong>Branch:</strong>{" "}
+  {employee.branch.name}
+</p>
 
   <p>
     <strong>Employee Type:</strong>{" "}
