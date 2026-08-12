@@ -39,23 +39,30 @@ if (!employee) {
   </div>
 
   <div className="flex items-center gap-3">
-    <Link
-      href="/dashboard/employees"
-      className="rounded-lg border bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50"
-    >
-      ← Back to Employees
-    </Link>
+  <Link
+    href="/dashboard/employees"
+    className="rounded-lg border bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50"
+  >
+    ← Back to Employees
+  </Link>
 
-    <span
-      className={`rounded-full px-3 py-1 text-sm font-medium ${
-        employee.isActive
-          ? "bg-green-100 text-green-700"
-          : "bg-red-100 text-red-700"
-      }`}
-    >
-      {employee.isActive ? "Active" : "Inactive"}
-    </span>
-  </div>
+  <Link
+    href={`/dashboard/employees/${employee.id}/edit`}
+    className="rounded-lg bg-[#7A0019] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#5F0014]"
+  >
+    Edit Employee
+  </Link>
+
+  <span
+    className={`rounded-full px-3 py-1 text-sm font-medium ${
+      employee.isActive
+        ? "bg-green-100 text-green-700"
+        : "bg-red-100 text-red-700"
+    }`}
+  >
+    {employee.isActive ? "Active" : "Inactive"}
+  </span>
+</div>
 </div>
 
      <div className="rounded-lg border bg-white p-6">
