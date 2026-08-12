@@ -49,31 +49,57 @@ if (!employee) {
   </div>
 </div>
 
-     <div className="rounded-lg border bg-white p-6 space-y-3">
-  <p>
-    <strong>Employee Code:</strong>{" "}
-    {employee.employeeCode}
-  </p>
+     <div className="rounded-lg border bg-white p-6">
+  <h2 className="text-xl font-semibold text-[#7A0019] mb-6">
+    Basic Information
+  </h2>
 
-  <p>
-    <strong>Full Name:</strong>{" "}
-    {employee.fullName}
-  </p>
+  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Employee Code
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.employeeCode}
+      </p>
+    </div>
 
-  <p>
-    <strong>Phone:</strong>{" "}
-    {employee.phone}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Full Name
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.fullName}
+      </p>
+    </div>
 
-  <p>
-    <strong>CNIC:</strong>{" "}
-    {employee.cnic || "Not provided"}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Phone
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.phone}
+      </p>
+    </div>
 
-  <p>
-    <strong>Address:</strong>{" "}
-    {employee.address || "Not provided"}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        CNIC
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.cnic || "Not provided"}
+      </p>
+    </div>
+
+    <div className="md:col-span-2">
+      <p className="text-sm text-muted-foreground">
+        Address
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.address || "Not provided"}
+      </p>
+    </div>
+  </div>
 </div>
 <div className="rounded-lg border bg-white p-6 space-y-3">
   <h2 className="text-xl font-semibold text-[#7A0019]">
