@@ -52,6 +52,36 @@ if (!employee) {
     {employee.address || "Not provided"}
   </p>
 </div>
+<div className="rounded-lg border bg-white p-6 space-y-3">
+  <h2 className="text-xl font-semibold text-[#7A0019]">
+    Employment Information
+  </h2>
+
+  <p>
+    <strong>Branch ID:</strong>{" "}
+    {employee.branchId}
+  </p>
+
+  <p>
+    <strong>Employee Type:</strong>{" "}
+    {employee.employeeType}
+  </p>
+
+  <p>
+    <strong>Department:</strong>{" "}
+    {employee.department}
+  </p>
+
+  <p>
+    <strong>Designation:</strong>{" "}
+    {employee.designation}
+  </p>
+
+  <p>
+    <strong>Join Date:</strong>{" "}
+    {employee.joinDate.toLocaleDateString()}
+  </p>
+</div>
     </div>
   );
 }
