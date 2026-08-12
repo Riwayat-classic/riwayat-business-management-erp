@@ -187,32 +187,62 @@ if (!employee) {
     </div>
   </div>
 </div>
-<div className="rounded-lg border bg-white p-6 space-y-3">
-  <h2 className="text-xl font-semibold text-[#7A0019]">
+<div className="rounded-lg border bg-white p-6">
+  <h2 className="text-xl font-semibold text-[#7A0019] mb-6">
     Status Information
   </h2>
 
-  <p>
-    <strong>Status:</strong>{" "}
-    {employee.isActive ? "Active" : "Inactive"}
-  </p>
+  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Status
+      </p>
 
-  <p>
-    <strong>Created:</strong>{" "}
-    {employee.createdAt.toLocaleDateString()}
-  </p>
+      <p className="mt-1">
+        <span
+          className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
+            employee.isActive
+              ? "bg-green-100 text-green-700"
+              : "bg-red-100 text-red-700"
+          }`}
+        >
+          {employee.isActive ? "Active" : "Inactive"}
+        </span>
+      </p>
+    </div>
 
-  <p>
-    <strong>Last Updated:</strong>{" "}
-    {employee.updatedAt.toLocaleDateString()}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Created
+      </p>
 
-  {employee.notes && (
-    <p>
-      <strong>Notes:</strong>{" "}
-      {employee.notes}
-    </p>
-  )}
+      <p className="mt-1 font-medium">
+        {employee.createdAt.toLocaleDateString()}
+      </p>
+    </div>
+
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Last Updated
+      </p>
+
+      <p className="mt-1 font-medium">
+        {employee.updatedAt.toLocaleDateString()}
+      </p>
+    </div>
+
+    {employee.notes && (
+      <div className="md:col-span-2">
+        <p className="text-sm text-muted-foreground">
+          Notes
+        </p>
+
+        <p className="mt-1 font-medium">
+          {employee.notes}
+        </p>
+      </div>
+    )}
+  </div>
 </div>
     </div>
   );
