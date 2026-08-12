@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { prisma } from "@/lib/prisma";
@@ -26,6 +27,7 @@ if (!employee) {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
+ <div className="flex items-center justify-between">
   <div>
     <h1 className="text-3xl font-bold text-[#7A0019]">
       Employee Details
@@ -37,6 +39,13 @@ if (!employee) {
   </div>
 
   <div className="flex items-center gap-3">
+    <Link
+      href="/dashboard/employees"
+      className="rounded-lg border bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-50"
+    >
+      ← Back to Employees
+    </Link>
+
     <span
       className={`rounded-full px-3 py-1 text-sm font-medium ${
         employee.isActive
