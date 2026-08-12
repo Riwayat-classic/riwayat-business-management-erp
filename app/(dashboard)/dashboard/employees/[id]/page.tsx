@@ -101,35 +101,57 @@ if (!employee) {
     </div>
   </div>
 </div>
-<div className="rounded-lg border bg-white p-6 space-y-3">
-  <h2 className="text-xl font-semibold text-[#7A0019]">
+<div className="rounded-lg border bg-white p-6">
+  <h2 className="text-xl font-semibold text-[#7A0019] mb-6">
     Employment Information
   </h2>
 
-  <p>
-  <strong>Branch:</strong>{" "}
-  {employee.branch.name}
-</p>
+  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Branch
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.branch.name}
+      </p>
+    </div>
 
-  <p>
-    <strong>Employee Type:</strong>{" "}
-    {employee.employeeType}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Employee Type
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.employeeType}
+      </p>
+    </div>
 
-  <p>
-    <strong>Department:</strong>{" "}
-    {employee.department}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Department
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.department}
+      </p>
+    </div>
 
-  <p>
-    <strong>Designation:</strong>{" "}
-    {employee.designation}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Designation
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.designation}
+      </p>
+    </div>
 
-  <p>
-    <strong>Join Date:</strong>{" "}
-    {employee.joinDate.toLocaleDateString()}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Join Date
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.joinDate.toLocaleDateString()}
+      </p>
+    </div>
+  </div>
 </div>
 <div className="rounded-lg border bg-white p-6 space-y-3">
   <h2 className="text-xl font-semibold text-[#7A0019]">
