@@ -25,9 +25,29 @@ if (!employee) {
 }
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-[#7A0019]">
-        Employee Details
-      </h1>
+      <div className="flex items-center justify-between">
+  <div>
+    <h1 className="text-3xl font-bold text-[#7A0019]">
+      Employee Details
+    </h1>
+
+    <p className="mt-1 text-muted-foreground">
+      View employee information and employment details.
+    </p>
+  </div>
+
+  <div className="flex items-center gap-3">
+    <span
+      className={`rounded-full px-3 py-1 text-sm font-medium ${
+        employee.isActive
+          ? "bg-green-100 text-green-700"
+          : "bg-red-100 text-red-700"
+      }`}
+    >
+      {employee.isActive ? "Active" : "Inactive"}
+    </span>
+  </div>
+</div>
 
      <div className="rounded-lg border bg-white p-6 space-y-3">
   <p>
