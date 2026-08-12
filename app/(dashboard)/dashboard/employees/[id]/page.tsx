@@ -153,25 +153,39 @@ if (!employee) {
     </div>
   </div>
 </div>
-<div className="rounded-lg border bg-white p-6 space-y-3">
-  <h2 className="text-xl font-semibold text-[#7A0019]">
+<div className="rounded-lg border bg-white p-6">
+  <h2 className="text-xl font-semibold text-[#7A0019] mb-6">
     Salary Information
   </h2>
 
-  <p>
-    <strong>Salary Type:</strong>{" "}
-    {employee.salaryType}
-  </p>
+  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Salary Type
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.salaryType}
+      </p>
+    </div>
 
-  <p>
-    <strong>Basic Salary:</strong>{" "}
-    {employee.basicSalary.toString()}
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Basic Salary
+      </p>
+      <p className="mt-1 font-medium">
+        PKR {employee.basicSalary.toString()}
+      </p>
+    </div>
 
-  <p>
-    <strong>Commission:</strong>{" "}
-    {employee.commissionPercent.toString()}%
-  </p>
+    <div>
+      <p className="text-sm text-muted-foreground">
+        Commission
+      </p>
+      <p className="mt-1 font-medium">
+        {employee.commissionPercent.toString()}%
+      </p>
+    </div>
+  </div>
 </div>
 <div className="rounded-lg border bg-white p-6 space-y-3">
   <h2 className="text-xl font-semibold text-[#7A0019]">
