@@ -102,7 +102,33 @@ if (!employee) {
     {employee.commissionPercent.toString()}%
   </p>
 </div>
+<div className="rounded-lg border bg-white p-6 space-y-3">
+  <h2 className="text-xl font-semibold text-[#7A0019]">
+    Status Information
+  </h2>
 
+  <p>
+    <strong>Status:</strong>{" "}
+    {employee.isActive ? "Active" : "Inactive"}
+  </p>
+
+  <p>
+    <strong>Created:</strong>{" "}
+    {employee.createdAt.toLocaleDateString()}
+  </p>
+
+  <p>
+    <strong>Last Updated:</strong>{" "}
+    {employee.updatedAt.toLocaleDateString()}
+  </p>
+
+  {employee.notes && (
+    <p>
+      <strong>Notes:</strong>{" "}
+      {employee.notes}
+    </p>
+  )}
+</div>
     </div>
   );
 }
