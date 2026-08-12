@@ -82,6 +82,27 @@ if (!employee) {
     {employee.joinDate.toLocaleDateString()}
   </p>
 </div>
+<div className="rounded-lg border bg-white p-6 space-y-3">
+  <h2 className="text-xl font-semibold text-[#7A0019]">
+    Salary Information
+  </h2>
+
+  <p>
+    <strong>Salary Type:</strong>{" "}
+    {employee.salaryType}
+  </p>
+
+  <p>
+    <strong>Basic Salary:</strong>{" "}
+    {employee.basicSalary.toString()}
+  </p>
+
+  <p>
+    <strong>Commission:</strong>{" "}
+    {employee.commissionPercent.toString()}%
+  </p>
+</div>
+
     </div>
   );
 }
