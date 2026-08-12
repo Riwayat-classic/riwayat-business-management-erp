@@ -6,6 +6,7 @@ interface EditEmployeeFormProps {
   employee: {
     id: string;
     employeeCode: string;
+    branchId: string;
     fullName: string;
     phone: string;
     cnic: string;
@@ -37,9 +38,7 @@ export function EditEmployeeForm({
   const [cnic, setCnic] = useState(employee.cnic);
   const [address, setAddress] = useState(employee.address);
 
-  const [branchId, setBranchId] = useState(
-    branches.find((branch) => branch.name === employee.department)?.id ?? ""
-  );
+  const [branchId, setBranchId] = useState(employee.branchId);
 
   const [employeeType, setEmployeeType] = useState(employee.employeeType);
   const [department, setDepartment] = useState(employee.department);

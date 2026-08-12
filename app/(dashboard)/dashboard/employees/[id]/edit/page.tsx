@@ -49,6 +49,7 @@ export default async function EditEmployeePage({
         employee={{
           id: employee.id,
           employeeCode: employee.employeeCode,
+          branchId: employee.branchId,
           fullName: employee.fullName,
           phone: employee.phone,
           cnic: employee.cnic ?? "",
