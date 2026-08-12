@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { prisma } from "@/lib/prisma";
+import { EditEmployeeForm } from "@/components/employees/edit-employee-form";
 
 interface EditEmployeePageProps {
   params: Promise<{
@@ -23,6 +24,15 @@ export default async function EditEmployeePage({
     notFound();
   }
 
+  const branches = await prisma.branch.findMany({
+    where: {
+      isActive: true,
+    },
+    orderBy: {
+      name: "asc",
+    },
+  });
+
   return (
     <div className="space-y-6">
       <div>
@@ -35,28 +45,29 @@ export default async function EditEmployeePage({
         </p>
       </div>
 
-      <div className="rounded-lg border bg-white p-6">
-        <h2 className="text-xl font-semibold text-[#7A0019]">
-          Employee Information
-        </h2>
-
-        <div className="mt-6 space-y-4">
-          <p>
-            <strong>Employee Code:</strong>{" "}
-            {employee.employeeCode}
-          </p>
-
-          <p>
-            <strong>Full Name:</strong>{" "}
-            {employee.fullName}
-          </p>
-
-          <p>
-            <strong>Phone:</strong>{" "}
-            {employee.phone}
-          </p>
-        </div>
-      </div>
+      <EditEmployeeForm
+        employee={{
+          id: employee.id,
+          employeeCode: employee.employeeCode,
+          fullName: employee.fullName,
+          phone: employee.phone,
+          cnic: employee.cnic ?? "",
+          address: employee.address ?? "",
+          employeeType: employee.employeeType,
+          designation: employee.designation,
+          department: employee.department,
+          salaryType: employee.salaryType,
+          basicSalary: employee.basicSalary.toString(),
+          commissionPercent: employee.commissionPercent.toString(),
+          joinDate: employee.joinDate.toISOString().split("T")[0],
+          isActive: employee.isActive,
+          notes: employee.notes ?? "",
+        }}
+        branches={branches.map((branch) => ({
+          id: branch.id,
+          name: branch.name,
+        }))}
+      />
     </div>
   );
 }
