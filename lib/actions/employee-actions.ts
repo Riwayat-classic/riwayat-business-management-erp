@@ -180,16 +180,17 @@ export async function updateEmployee(formData: FormData) {
 
         branchId: validatedData.data.branchId,
       },
-    });
+    }); 
 
     revalidatePath("/dashboard/employees");
     revalidatePath(`/dashboard/employees/${id}`);
     revalidatePath(`/dashboard/employees/${id}/edit`);
 
     return {
-      success: true,
-      message: "Employee updated successfully.",
-    };
+  success: true,
+  message: "Employee updated successfully.",
+  redirectTo: `/dashboard/employees/${id}`,
+};
   } catch (error) {
     console.error("Employee Update Error:", error);
 
