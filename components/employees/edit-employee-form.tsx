@@ -76,11 +76,12 @@ export function EditEmployeeForm({
             </label>
 
             <input
-              type="text"
-              value={employeeCode}
-              onChange={(e) => setEmployeeCode(e.target.value)}
-              className="mt-1 w-full rounded-lg border px-3 py-2"
-            />
+  type="text"
+  name="employeeCode"
+  value={employeeCode}
+  onChange={(e) => setEmployeeCode(e.target.value)}
+  className="mt-1 w-full rounded-lg border px-3 py-2"
+/>
           </div>
 
           <div>
@@ -88,12 +89,13 @@ export function EditEmployeeForm({
               Full Name
             </label>
 
-            <input
-              type="text"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              className="mt-1 w-full rounded-lg border px-3 py-2"
-            />
+           <input
+  type="text"
+  name="fullName"
+  value={fullName}
+  onChange={(e) => setFullName(e.target.value)}
+  className="mt-1 w-full rounded-lg border px-3 py-2"
+/>
           </div>
 
           <div>
@@ -102,11 +104,12 @@ export function EditEmployeeForm({
             </label>
 
             <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="mt-1 w-full rounded-lg border px-3 py-2"
-            />
+  type="text"
+  name="phone"
+  value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+  className="mt-1 w-full rounded-lg border px-3 py-2"
+/>
           </div>
 
           <div>
@@ -116,6 +119,7 @@ export function EditEmployeeForm({
 
             <input
               type="text"
+              name="cnic"
               value={cnic}
               onChange={(e) => setCnic(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -128,6 +132,7 @@ export function EditEmployeeForm({
             </label>
 
             <textarea
+              name="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               rows={3}
@@ -153,6 +158,7 @@ export function EditEmployeeForm({
 
             <select
               value={branchId}
+              name="branchId"
               onChange={(e) => setBranchId(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
             >
@@ -172,6 +178,7 @@ export function EditEmployeeForm({
             </label>
 
             <select
+              name="employeeType"
               value={employeeType}
               onChange={(e) => setEmployeeType(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -193,6 +200,7 @@ export function EditEmployeeForm({
 
             <input
               type="text"
+              name="department"
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -206,6 +214,7 @@ export function EditEmployeeForm({
 
             <input
               type="text"
+              name="designation"
               value={designation}
               onChange={(e) => setDesignation(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -219,6 +228,7 @@ export function EditEmployeeForm({
 
             <input
               type="date"
+              name="joinDate"
               value={joinDate}
               onChange={(e) => setJoinDate(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -242,6 +252,7 @@ export function EditEmployeeForm({
             </label>
 
             <select
+              name="salaryType"
               value={salaryType}
               onChange={(e) => setSalaryType(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -259,6 +270,7 @@ export function EditEmployeeForm({
 
             <input
               type="number"
+              name="basicSalary"
               value={basicSalary}
               onChange={(e) => setBasicSalary(e.target.value)}
               className="mt-1 w-full rounded-lg border px-3 py-2"
@@ -272,6 +284,7 @@ export function EditEmployeeForm({
 
             <input
               type="number"
+              name="commissionPercent"
               step="0.01"
               value={commissionPercent}
               onChange={(e) => setCommissionPercent(e.target.value)}
@@ -296,6 +309,7 @@ export function EditEmployeeForm({
             </label>
 
             <select
+              name="isActive"
               value={isActive ? "ACTIVE" : "INACTIVE"}
               onChange={(e) =>
                 setIsActive(e.target.value === "ACTIVE")
@@ -313,6 +327,7 @@ export function EditEmployeeForm({
             </label>
 
             <textarea
+              name="notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
