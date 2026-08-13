@@ -320,16 +320,16 @@ const [isPending, startTransition] = useTransition();
             </label>
 
             <select
-              name="isActive"
-              value={isActive ? "ACTIVE" : "INACTIVE"}
-              onChange={(e) =>
-                setIsActive(e.target.value === "ACTIVE")
-              }
-              className="mt-1 w-full rounded-lg border px-3 py-2"
-            >
-              <option value="ACTIVE">Active</option>
-              <option value="INACTIVE">Inactive</option>
-            </select>
+  name="isActive"
+  value={isActive ? "true" : "false"}
+  onChange={(e) =>
+    setIsActive(e.target.value === "true")
+  }
+  className="mt-1 w-full rounded-lg border px-3 py-2"
+>
+  <option value="true">Active</option>
+  <option value="false">Inactive</option>
+</select>
           </div>
 
           <div className="md:col-span-2">
