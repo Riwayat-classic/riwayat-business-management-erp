@@ -56,7 +56,7 @@ const [isPending, startTransition] = useTransition();
   const [notes, setNotes] = useState(employee.notes);
 
   return (
-    <form
+  <form
   action={(formData) => {
     startTransition(async () => {
       const result = await updateEmployee(formData);
@@ -353,12 +353,12 @@ const [isPending, startTransition] = useTransition();
       <div className="flex justify-end gap-3">
 
         <button
-          type="button"
-          onClick={() => window.history.back()}
-          className="rounded-lg border bg-white px-5 py-2 font-medium hover:bg-gray-50"
-        >
-          Cancel
-        </button>
+  type="submit"
+  disabled={isPending}
+  className="rounded-lg bg-[#7A0019] px-5 py-2 font-medium text-white hover:bg-[#5F0014] disabled:cursor-not-allowed disabled:opacity-60"
+>
+  {isPending ? "Saving..." : "Save Changes"}
+</button>
 
         <button
           type="submit"
