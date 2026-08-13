@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { updateEmployee } from "@/lib/actions/employee-actions";
 
 interface EditEmployeeFormProps {
@@ -50,13 +50,24 @@ export function EditEmployeeForm({
   const [commissionPercent, setCommissionPercent] = useState(
     employee.commissionPercent
   );
-
+const [isPending, startTransition] = useTransition();
   const [joinDate, setJoinDate] = useState(employee.joinDate);
   const [isActive, setIsActive] = useState(employee.isActive);
   const [notes, setNotes] = useState(employee.notes);
 
   return (
-    <form action={updateEmployee} className="space-y-6">
+    <form
+  action={(formData) => {
+    startTransition(async () => {
+      const result = await updateEmployee(formData);
+
+      if (result.success && result.redirectTo) {
+        window.location.href = result.redirectTo;
+      }
+    });
+  }}
+  className="space-y-6"
+>
 <input
   type="hidden"
   name="id"
