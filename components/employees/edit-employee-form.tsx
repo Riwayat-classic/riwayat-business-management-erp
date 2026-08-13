@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { updateEmployee } from "@/lib/actions/employee-actions";
 
 interface EditEmployeeFormProps {
   employee: {
@@ -55,8 +56,12 @@ export function EditEmployeeForm({
   const [notes, setNotes] = useState(employee.notes);
 
   return (
-    <form className="space-y-6">
-
+    <form action={updateEmployee} className="space-y-6">
+<input
+  type="hidden"
+  name="id"
+  value={employee.id}
+/>
       {/* Basic Information */}
       <div className="rounded-lg border bg-white p-6">
         <h2 className="mb-6 text-xl font-semibold text-[#7A0019]">
